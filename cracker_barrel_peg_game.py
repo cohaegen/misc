@@ -64,6 +64,7 @@ class PegGame():
         return sum(self._spot_status)
         
 def solve_peg_game(move_history=None, empty_starting_spot=None):
+    '''Finds solutions to the Cracker Barrel peg game with one peg left'''
     if(empty_starting_spot is None):
         for i in range(10):
             solve_peg_game(move_history=None, empty_starting_spot = i)
@@ -77,7 +78,7 @@ def solve_peg_game(move_history=None, empty_starting_spot=None):
         move_history = []
     if(len(p.legal_moves()) == 0):
         if(1 == p.pegs_left()):
-            print('Solved: %s; empty starting spot: %d' % (move_history, empty_starting_spot))
+            print('Solved with one peg left: %s; empty starting spot: %d' % (move_history, empty_starting_spot))
     else:
         for next_move in p.legal_moves():
             new_move_history = move_history.copy()
